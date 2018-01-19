@@ -244,5 +244,5 @@ return [
                 'helper-text' => 'Your pusher application secret.',
             ],
         ],
-    ]
+    ],
 ];

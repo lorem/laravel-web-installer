@@ -54,7 +54,7 @@ class EnvironmentManager
      */
     public function getEnvContent()
     {
-        if (!file_exists($this->envPath)) {
+        if (! file_exists($this->envPath)) {
             $this->buildEnvFromExample();
         }
 
@@ -91,7 +91,7 @@ class EnvironmentManager
         })->keyBy(function ($value, $key) {
             return strtoupper($key);
         })->map(function ($value, $key) {
-            file_put_contents($this->envPath, $key . '=' . $value . PHP_EOL, FILE_APPEND);
+            file_put_contents($this->envPath, $key.'='.$value.PHP_EOL, FILE_APPEND);
         });
     }
 
