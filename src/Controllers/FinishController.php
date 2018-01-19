@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Lorem\WebInstaller\Helpers\ArtisanManager;
 use Lorem\WebInstaller\Helpers\DatabaseManager;
 use Lorem\WebInstaller\Helpers\InstallationFileManager;
+use Illuminate\Support\Facades\DB;
 
 class FinishController extends Controller
 {
@@ -16,6 +17,7 @@ class FinishController extends Controller
 
     /**
      * FinishController constructor.
+     *
      * @param InstallationFileManager $installationFileManager
      * @param ArtisanManager $artisanManager
      * @param DatabaseManager $databaseManager

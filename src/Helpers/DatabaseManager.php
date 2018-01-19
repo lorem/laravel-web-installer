@@ -12,6 +12,12 @@ class DatabaseManager
      */
     public function migrateAndSeed()
     {
+        try {
+            DB::connection()->getPdo();
+        } catch (\Exception $e) {
+            die("Could not connect to the database.  Please check your configuration.");
+        }
+
         $this->migrate();
         $this->seed();
     }
