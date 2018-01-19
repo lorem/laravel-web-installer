@@ -2,9 +2,9 @@
 
 namespace Lorem\WebInstaller\Helpers;
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Validation\Rule;
 use Validator;
-use Illuminate\Support\Facades\Artisan;
 
 class EnvironmentManager
 {
