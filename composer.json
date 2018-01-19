@@ -1,0 +1,38 @@
+{
+    "name": "lorem/laravel-web-installer",
+    "description": "Web based installation wizard for Laravel.",
+    "keywords": [
+        "laravel",
+        "installer",
+        "installation",
+        "wizard"
+    ],
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Liam Boer",
+            "email": "hello@liamm.nl"
+        },
+        {
+            "name": "Rob Dearling",
+            "email": "rob@nulldev.uk"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "laravel/framework": ">=5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lorem\\WebInstaller\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lorem\\WebInstaller\\WebInstallerServiceProvider"
+            ]
+        }
+    }
+}
