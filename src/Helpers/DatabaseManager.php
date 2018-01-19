@@ -5,13 +5,11 @@ namespace Lorem\WebInstaller\Helpers;
 use Exception;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Lorem\WebInstaller\Traits\HandlesErrors;
 
 class DatabaseManager
 {
-    /**
-     * @var array
-     */
-    private $errors = [];
+    use HandlesErrors;
 
     /**
      * Migrate and seed the database.
@@ -21,9 +19,9 @@ class DatabaseManager
         $this->testDatabaseConnection();
         $this->migrate();
         $this->seed();
-        if (count($this->errors) > 0)
+        if ($this->hasErrors())
         {
-            return view('installer::environment')->with(['errors' => $this->errors]);
+            return view('installer::environment')->with(['errors' => $this->getErrors()]);
         }
     }
 
@@ -38,7 +36,6 @@ class DatabaseManager
             $this->addError($e);
         }
     }
-
 
     /**
      * Migrate the tables.
@@ -62,15 +59,5 @@ class DatabaseManager
         } catch (Exception $e) {
             $this->addError($e);
         }
-    }
-
-    /**
-     * Add an error.
-     *
-     * @param $error
-     */
-    protected function addError($error)
-    {
-        $this->errors[] = $error;
     }
 }
