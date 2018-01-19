@@ -2,9 +2,9 @@
 
 namespace Lorem\WebInstaller;
 
-use Lorem\WebInstaller\Middleware\IsInstallable;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Lorem\WebInstaller\Middleware\IsInstallable;
 
 class WebInstallerServiceProvider extends ServiceProvider
 {
@@ -29,7 +29,7 @@ class WebInstallerServiceProvider extends ServiceProvider
     {
         $router->middlewareGroup('IsInstallable', [IsInstallable::class]);
 
-        $this->loadViewsFrom(__DIR__ . '/views', $this->packageName);
+        $this->loadViewsFrom(__DIR__.'/views', $this->packageName);
     }
 
     /**
@@ -41,7 +41,7 @@ class WebInstallerServiceProvider extends ServiceProvider
     {
         $this->publishFiles();
 
-        $this->loadRoutesFrom(__DIR__ . '/routes/installer.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/installer.php');
     }
 
     /**
@@ -52,11 +52,11 @@ class WebInstallerServiceProvider extends ServiceProvider
     protected function publishFiles()
     {
         $this->publishes([
-            __DIR__ . '/config/installer.php' => base_path('config/installer.php'),
+            __DIR__.'/config/installer.php' => base_path('config/installer.php'),
         ], $this->packageName);
 
         $this->publishes([
-            __DIR__ . '/assets' => public_path('vendor/' . $this->packageName),
+            __DIR__.'/assets' => public_path('vendor/'.$this->packageName),
         ], $this->packageName);
     }
 }
