@@ -19,8 +19,7 @@ class DatabaseManager
         $this->testDatabaseConnection();
         $this->migrate();
         $this->seed();
-        if ($this->hasErrors())
-        {
+        if ($this->hasErrors()) {
             return view('installer::environment')->with(['errors' => $this->getErrors()]);
         }
     }
