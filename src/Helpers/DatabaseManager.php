@@ -21,8 +21,7 @@ class DatabaseManager
         $this->testDatabaseConnection();
         $this->migrate();
         $this->seed();
-        if (count($this->errors) > 0)
-        {
+        if (count($this->errors) > 0) {
             return view('installer::environment')->with(['errors' => $this->errors]);
         }
     }
@@ -38,7 +37,6 @@ class DatabaseManager
             $this->addError($e);
         }
     }
-
 
     /**
      * Migrate the tables.
