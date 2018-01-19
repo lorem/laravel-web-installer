@@ -43,5 +43,7 @@ class EnvironmentController extends Controller
     {
         $this->environmentManager->validateEnv($request->except('_token'));
         $this->environmentManager->save($request->except('_token'));
+
+        return view('installer::finish');
     }
 }

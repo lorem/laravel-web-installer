@@ -145,7 +145,8 @@ class EnvironmentManager
 
         if ($validator->fails()) {
             $errors = $validator->errors();
-            return view('vendor.installer.environment', compact('errors'));
+
+            return view('installer::environment', compact('errors'));
         }
     }
 }

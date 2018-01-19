@@ -18,7 +18,8 @@
             <ul class="nav nav-pills mb-3" id="tab-list" role="tablist">
                 @foreach($envFields as $key => $value)
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize {{ $loop->first ? 'active' : '' }}" data-toggle="tab" role="tab"
+                        <a class="nav-link text-capitalize {{ $loop->first ? 'active' : '' }}" data-toggle="tab"
+                           role="tab"
                            href="#tab-{{ str_slug($key) }}">{{ $key }}</a>
                     </li>
                 @endforeach
@@ -26,8 +27,6 @@
 
 
             <form method="post" action="{{ route('installer.environment.store') }}">
-                {{ csrf_field() }}
-
                 <div class="tab-content" id="tab-content">
 
                     @foreach($envFields as $key => $value)
@@ -42,16 +41,17 @@
 
                                 <div class="form-group">
                                     @if(array_key_exists('options', $value))
-                                        <select class="form-control" id="exampleSelect1">
+                                        <select class="form-control" id="{{ $field }}" name="{{ strtolower($field) }}">
                                             @foreach($value['options'] as $option)
                                                 <option value="{{ $option }}">{{ ucfirst($option) }}</option>
                                             @endforeach
                                         </select>
                                     @else
                                         <label for="{{ $field }}">{{ title_case(str_replace('_', ' ', $field)) }}</label>
-                                        <input type="text" class="form-control" name="{{ $field }}" id="{{ $field }}"
+                                        <input type="text" class="form-control" name="{{ strtolower($field) }}" id="{{ $field }}"
                                                placeholder="{{ $field }}" value="{{ $value['default'] ?? '' }}">
                                     @endif
+
                                     @if(array_key_exists('helper-text', $value))
                                         <small class="form-text text-muted">{{ $value['helper-text'] }}</small>
                                     @endif
@@ -64,18 +64,16 @@
 
                 </div>
 
-            </form>
-
-
-            <div class="kit-footer">
-                <div class="text-right">
-                    {{--@if (!isset($requirements['errors']) && $phpSupportInfo['supported'])--}}
-                    <a href="{{ route('installer.finish') }}" class="btn btn-primary">Next step</a>
-                    {{--@else--}}
-                    {{--<a href="#" class="btn btn-primary disabled" disabled>Next step</a>--}}
-                    {{--@endif--}}
+                <div class="kit-footer">
+                    <div class="text-right">
+                        {{--@if (!isset($requirements['errors']) && $phpSupportInfo['supported'])--}}
+                        <button type="submit" class="btn btn-primary">Next step</button>
+                        {{--@else--}}
+                        {{--<a href="#" class="btn btn-primary disabled" disabled>Next step</a>--}}
+                        {{--@endif--}}
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 @endsection
