@@ -29,7 +29,7 @@ class ArtisanManager
     private static function generateKey($outputLog)
     {
         try {
-            Artisan::call('key:generate', ["--force" => true], $outputLog);
+            Artisan::call('key:generate', ['--force' => true], $outputLog);
         } catch (Exception $e) {
             return $e->getMessage();
         }

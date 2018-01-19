@@ -2,8 +2,8 @@
 
 namespace Lorem\WebInstaller\Middleware;
 
-use Lorem\WebInstaller\Traits\Installable;
 use Closure;
+use Lorem\WebInstaller\Traits\Installable;
 
 class IsInstallable
 {

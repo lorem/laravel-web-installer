@@ -3,8 +3,8 @@
 namespace Lorem\WebInstaller\Controllers;
 
 use App\Http\Controllers\Controller;
-use Lorem\WebInstaller\Helpers\EnvironmentManager;
 use Illuminate\Http\Request;
+use Lorem\WebInstaller\Helpers\EnvironmentManager;
 
 class EnvironmentController extends Controller
 {

@@ -24,7 +24,7 @@ class InstallationFileManager
     {
         $timestamp = date('Y-m-d h:i:s');
 
-        $body = 'installed on: ' . $timestamp . "\n";
+        $body = 'installed on: '.$timestamp."\n";
 
         $this->save($body);
     }
@@ -37,7 +37,7 @@ class InstallationFileManager
     public function save($body)
     {
         if (file_exists($this->filePath)) {
-            file_put_contents($this->filePath, $body . PHP_EOL, FILE_APPEND | LOCK_EX);
+            file_put_contents($this->filePath, $body.PHP_EOL, FILE_APPEND | LOCK_EX);
         } else {
             file_put_contents($this->filePath, $body);
         }
