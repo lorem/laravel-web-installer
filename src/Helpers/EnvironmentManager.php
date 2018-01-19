@@ -2,7 +2,6 @@
 
 namespace Lorem\WebInstaller\Helpers;
 
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Validation\Rule;
 use Validator;
 
