@@ -96,8 +96,6 @@ class EnvironmentManager
         })->map(function ($value, $key) {
             file_put_contents($this->envPath, $key.'='.$value.PHP_EOL, FILE_APPEND);
         });
-
-        Artisan::call('key:generate');
     }
 
     /**
