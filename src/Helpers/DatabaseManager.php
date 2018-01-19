@@ -4,6 +4,7 @@ namespace Lorem\WebInstaller\Helpers;
 
 use Exception;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseManager
 {

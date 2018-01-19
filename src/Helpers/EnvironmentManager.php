@@ -4,6 +4,7 @@ namespace Lorem\WebInstaller\Helpers;
 
 use Illuminate\Validation\Rule;
 use Validator;
+use Illuminate\Support\Facades\Artisan;
 
 class EnvironmentManager
 {
@@ -86,6 +87,8 @@ class EnvironmentManager
     {
         $this->wipeEnvContent();
 
+        file_put_contents($this->envPath, 'APP_KEY='.PHP_EOL, FILE_APPEND);
+
         collect($this->getRules())->map(function ($value, $key) use ($request) {
             return $key = $request[strtolower($key)];
         })->keyBy(function ($value, $key) {
@@ -93,6 +96,8 @@ class EnvironmentManager
         })->map(function ($value, $key) {
             file_put_contents($this->envPath, $key.'='.$value.PHP_EOL, FILE_APPEND);
         });
+
+        Artisan::call('key:generate');
     }
 
     /**
