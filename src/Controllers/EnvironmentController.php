@@ -47,6 +47,7 @@ class EnvironmentController extends Controller
         }
 
         $this->environmentManager->save($request->except('_token'));
+
         return redirect()->route('installer.finish');
     }
 }
