@@ -3,7 +3,7 @@
 [![StyleCI](https://styleci.io/repos/118093538/shield?style=flat)](https://styleci.io/repos/118093538)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/lorem/laravel-web-installer)
 
-[We are still in development of this tool. We expect to have a working/stable version in a few weeks]
+> We are still in development of this tool. We expect to have a working/stable version in a few weeks
 
 Install/configure your Laravel application through a fast web based installation wizard. 
 
