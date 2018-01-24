@@ -41,9 +41,12 @@ class EnvironmentController extends Controller
      */
     public function store(Request $request)
     {
-        $this->environmentManager->validateEnv($request->except('_token'));
-        $this->environmentManager->save($request->except('_token'));
+        $validation = $this->environmentManager->validateEnv($request->except('_token'));
+        if ($validation->fails()) {
+            return view('installer::environment')->with(['errors' => $validation->errors(), 'envFields' => config('installer.environment')]);
+        }
 
+        $this->environmentManager->save($request->except('_token'));
         return redirect()->route('installer.finish');
     }
 }

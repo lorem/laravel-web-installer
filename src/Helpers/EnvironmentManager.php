@@ -143,12 +143,6 @@ class EnvironmentManager
      */
     public function validateEnv($request)
     {
-        $validator = Validator::make($request, $this->getRules());
-
-        if ($validator->fails()) {
-            $errors = $validator->errors();
-
-            return view('installer::environment', compact('errors'));
-        }
+        return Validator::make($request, $this->getRules());
     }
 }
