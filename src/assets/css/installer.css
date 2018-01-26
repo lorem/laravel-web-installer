@@ -9903,6 +9903,7 @@ body {
     border-radius: 4px;
     border: 1px solid #e9eaec;
     padding: 30px;
+    margin-bottom: 4rem;
 }
 
 .kit .kit-body {
@@ -9970,4 +9971,8 @@ body {
 
 .btn.disabled {
     opacity: .65;
+}
+
+.alert p, .alert ul, .alert ol {
+    margin-bottom: 0;
 }

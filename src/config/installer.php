@@ -71,7 +71,7 @@ return [
                 'default' => 'Draft',
                 'helper-text' => 'Your applications name.',
             ],
-            'ENVIRONMENT' => [
+            'APP_ENV' => [
                 'default' => 'local',
                 'options' => [
                     'local',

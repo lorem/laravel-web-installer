@@ -14,6 +14,7 @@
                 Asperiores consequatur dolores eum ipsa, maiores modi, optio pariatur sint sunt temporibus totam ullam,
                 voluptatem.</p>
 
+            @include('installer::shared.errors')
 
             <ul class="nav nav-pills mb-3" id="tab-list" role="tablist">
                 @foreach($envFields as $key => $value)
@@ -24,7 +25,6 @@
                     </li>
                 @endforeach
             </ul>
-
 
             <form method="post" action="{{ route('installer.environment.store') }}">
                 <div class="tab-content" id="tab-content">
@@ -41,6 +41,7 @@
 
                                 <div class="form-group">
                                     @if(array_key_exists('options', $value))
+                                        <label for="{{ $field }}">{{ title_case(str_replace('_', ' ', $field)) }}</label>
                                         <select class="form-control" id="{{ $field }}" name="{{ strtolower($field) }}">
                                             @foreach($value['options'] as $option)
                                                 <option value="{{ $option }}">{{ ucfirst($option) }}</option>
@@ -48,7 +49,8 @@
                                         </select>
                                     @else
                                         <label for="{{ $field }}">{{ title_case(str_replace('_', ' ', $field)) }}</label>
-                                        <input type="text" class="form-control" name="{{ strtolower($field) }}" id="{{ $field }}"
+                                        <input type="text" class="form-control" name="{{ strtolower($field) }}"
+                                               id="{{ $field }}"
                                                placeholder="{{ $field }}" value="{{ $value['default'] ?? '' }}">
                                     @endif
 
@@ -66,11 +68,7 @@
 
                 <div class="kit-footer">
                     <div class="text-right">
-                        {{--@if (!isset($requirements['errors']) && $phpSupportInfo['supported'])--}}
                         <button type="submit" class="btn btn-primary">Next step</button>
-                        {{--@else--}}
-                        {{--<a href="#" class="btn btn-primary disabled" disabled>Next step</a>--}}
-                        {{--@endif--}}
                     </div>
                 </div>
             </form>
